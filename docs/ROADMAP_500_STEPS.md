@@ -1,0 +1,553 @@
+# 500-step development checklist — God of War III Xbox 360 RGH
+
+> This is a staged checklist, not a claim that 500 implementation steps have already been completed. All items begin unchecked; status must change only when there is evidence.
+
+## Status key
+- `[ ]` Not done / not verified
+- `[x]` Completed with evidence recorded in the progress log
+
+## Sequential checklist
+
+### Repository and governance
+- [ ] 001. inventory repository files
+- [ ] 002. record baseline commit
+- [ ] 003. define branch naming
+- [ ] 004. define commit message rules
+- [ ] 005. define issue labels
+- [ ] 006. document legal boundaries
+- [ ] 007. document asset policy
+- [ ] 008. define progress status labels
+- [ ] 009. define version tags
+- [ ] 010. define release notes format
+- [ ] 011. define evidence storage
+- [ ] 012. define review checklist
+- [ ] 013. define contribution workflow
+- [ ] 014. define bug report template
+- [ ] 015. define feature request template
+- [ ] 016. define security reporting path
+- [ ] 017. define dependency update policy
+- [ ] 018. define license review
+- [ ] 019. define third-party notices process
+- [ ] 020. define artifact retention
+- [ ] 021. define reproducibility policy
+- [ ] 022. define milestone exit criteria
+- [ ] 023. define risk register
+- [ ] 024. review README consistency
+- [ ] 025. verify documentation links
+
+### Build environment
+- [ ] 026. identify supported host OS
+- [ ] 027. document package prerequisites
+- [ ] 028. identify compiler distribution
+- [ ] 029. record compiler version
+- [ ] 030. record target triple
+- [ ] 031. record linker version
+- [ ] 032. record assembler version
+- [ ] 033. identify object inspection tool
+- [ ] 034. identify binary inspection tool
+- [ ] 035. document environment variables
+- [ ] 036. document PATH requirements
+- [ ] 037. document SDK root variable
+- [ ] 038. verify tool executable paths
+- [ ] 039. record tool checksums where practical
+- [ ] 040. document clean build procedure
+- [ ] 041. document offline build limitations
+- [ ] 042. document cache policy
+- [ ] 043. document build directory layout
+- [ ] 044. separate host and target flags
+- [ ] 045. document warning policy
+- [ ] 046. document optimization policy
+- [ ] 047. document debug build
+- [ ] 048. document release build
+- [ ] 049. record environment manifest
+- [ ] 050. define environment acceptance test
+
+### Compiler and toolchain validation
+- [ ] 051. check compiler invocation
+- [ ] 052. check compiler version output
+- [ ] 053. check compiler target output
+- [ ] 054. check preprocessor availability
+- [ ] 055. check assembler availability
+- [ ] 056. check linker availability
+- [ ] 057. check archive tool availability
+- [ ] 058. check object dump availability
+- [ ] 059. check symbol listing availability
+- [ ] 060. compile empty translation unit
+- [ ] 061. compile minimal main function
+- [ ] 062. inspect generated object
+- [ ] 063. inspect generated executable
+- [ ] 064. verify endianness
+- [ ] 065. verify ELF class
+- [ ] 066. verify machine architecture
+- [ ] 067. verify ABI assumptions
+- [ ] 068. verify startup object availability
+- [ ] 069. verify libc availability
+- [ ] 070. verify required libraries
+- [ ] 071. check unresolved symbols
+- [ ] 072. check compiler warning behavior
+- [ ] 073. check deterministic output
+- [ ] 074. capture complete logs
+- [ ] 075. document toolchain blockers
+
+### Portable C scaffold
+- [ ] 076. define entry-point contract
+- [ ] 077. keep entry point minimal
+- [ ] 078. avoid guessed platform APIs
+- [ ] 079. enable strict warnings
+- [ ] 080. test warning-free host build
+- [ ] 081. add portable integer definitions only if needed
+- [ ] 082. avoid undefined behavior
+- [ ] 083. avoid uninitialized state
+- [ ] 084. avoid hidden global dependencies
+- [ ] 085. document return-code meaning
+- [ ] 086. add explicit build dependencies
+- [ ] 087. keep source file paths stable
+- [ ] 088. check newline conventions
+- [ ] 089. check source encoding
+- [ ] 090. check license headers
+- [ ] 091. check function prototypes
+- [ ] 092. check include paths
+- [ ] 093. avoid proprietary assets
+- [ ] 094. avoid proprietary source
+- [ ] 095. keep platform adapter separate
+- [ ] 096. keep host checks separate
+- [ ] 097. document source ownership
+- [ ] 098. review compiler portability
+- [ ] 099. add static assertions when justified
+- [ ] 100. record scaffold limitations
+
+### Build system
+- [ ] 101. define default target clearly
+- [ ] 102. define host-check target
+- [ ] 103. define Xenon ELF target
+- [ ] 104. define clean target
+- [ ] 105. define configurable compiler variable
+- [ ] 106. define configurable build directory
+- [ ] 107. keep host compiler separate
+- [ ] 108. keep target compiler separate
+- [ ] 109. avoid implicit packaging step
+- [ ] 110. make output paths deterministic
+- [ ] 111. document override variables
+- [ ] 112. test missing compiler failure
+- [ ] 113. test missing source failure
+- [ ] 114. test clean target
+- [ ] 115. test repeated build
+- [ ] 116. test clean rebuild
+- [ ] 117. record exit codes
+- [ ] 118. record compiler logs
+- [ ] 119. avoid renaming ELF as XEX
+- [ ] 120. document artifact naming
+- [ ] 121. document generated files
+- [ ] 122. add ignored build directory
+- [ ] 123. review Makefile syntax
+- [ ] 124. verify command quoting
+- [ ] 125. define build acceptance criteria
+
+### Continuous integration
+- [ ] 126. review workflow trigger policy
+- [ ] 127. pin runner OS
+- [ ] 128. select supported Python version
+- [ ] 129. checkout source explicitly
+- [ ] 130. run static scaffold test
+- [ ] 131. run host compilation
+- [ ] 132. run host executable
+- [ ] 133. preserve useful failure output
+- [ ] 134. avoid secrets in logs
+- [ ] 135. avoid proprietary assets in CI
+- [ ] 136. document workflow permissions
+- [ ] 137. avoid unnecessary write permissions
+- [ ] 138. verify workflow YAML syntax
+- [ ] 139. inspect first workflow run
+- [ ] 140. inspect job logs
+- [ ] 141. record workflow conclusion
+- [ ] 142. fix static-check failures
+- [ ] 143. fix host compiler failures
+- [ ] 144. verify pull request trigger
+- [ ] 145. verify push trigger
+- [ ] 146. verify manual trigger
+- [ ] 147. document CI limitations
+- [ ] 148. separate host and target workflows
+- [ ] 149. avoid claiming target validation in CI
+- [ ] 150. define CI success criteria
+
+### Testing and diagnostics
+- [ ] 151. define test naming scheme
+- [ ] 152. define pass/fail vocabulary
+- [ ] 153. define evidence format
+- [ ] 154. record host OS per run
+- [ ] 155. record compiler version per run
+- [ ] 156. record command per run
+- [ ] 157. record return code per run
+- [ ] 158. record stdout
+- [ ] 159. record stderr
+- [ ] 160. keep test fixtures minimal
+- [ ] 161. avoid copyrighted test data
+- [ ] 162. test source assertions
+- [ ] 163. test host compilation
+- [ ] 164. test host execution
+- [ ] 165. test missing tool diagnostics
+- [ ] 166. test malformed configuration handling when added
+- [ ] 167. test logging interface when added
+- [ ] 168. test allocation wrappers when added
+- [ ] 169. test input adapter when added
+- [ ] 170. test graphics adapter when added
+- [ ] 171. test audio adapter when added
+- [ ] 172. define hardware smoke test
+- [ ] 173. define regression policy
+- [ ] 174. define reproducibility test
+- [ ] 175. publish test matrix
+
+### Xbox 360 platform adapter
+- [ ] 176. document target lifecycle
+- [ ] 177. identify supported startup path
+- [ ] 178. identify supported logging path
+- [ ] 179. identify supported file APIs
+- [ ] 180. identify controller API
+- [ ] 181. identify audio API
+- [ ] 182. identify graphics API
+- [ ] 183. identify timing API
+- [ ] 184. identify thread API
+- [ ] 185. identify memory allocation API
+- [ ] 186. verify each API in official docs
+- [ ] 187. record SDK version for each API
+- [ ] 188. create adapter interface only after verification
+- [ ] 189. separate platform headers
+- [ ] 190. avoid host inclusion of target headers
+- [ ] 191. define error handling policy
+- [ ] 192. define shutdown behavior
+- [ ] 193. define diagnostic output
+- [ ] 194. define controller mapping test
+- [ ] 195. define file access test
+- [ ] 196. define timer test
+- [ ] 197. define allocation test
+- [ ] 198. define startup smoke test
+- [ ] 199. record hardware model and environment
+- [ ] 200. document unsupported services
+
+### Memory and runtime
+- [ ] 201. document memory budget assumptions
+- [ ] 202. identify memory map from reliable docs
+- [ ] 203. identify allocator behavior
+- [ ] 204. define allocation wrapper requirements
+- [ ] 205. define alignment requirements
+- [ ] 206. define allocation failure behavior
+- [ ] 207. define ownership conventions
+- [ ] 208. define resource lifetime conventions
+- [ ] 209. avoid assumptions about PS3 memory layout
+- [ ] 210. inventory source allocation patterns when available
+- [ ] 211. inventory shared-memory assumptions when available
+- [ ] 212. identify DMA constraints from docs
+- [ ] 213. define buffer alignment tests
+- [ ] 214. define boundary tests
+- [ ] 215. define leak-check strategy
+- [ ] 216. define peak-memory logging
+- [ ] 217. define fragmentation tests
+- [ ] 218. define startup allocation test
+- [ ] 219. define resource teardown test
+- [ ] 220. document cache coherency risks
+- [ ] 221. document synchronization requirements
+- [ ] 222. avoid speculative address constants
+- [ ] 223. record memory acceptance criteria
+- [ ] 224. review runtime invariants
+- [ ] 225. defer engine allocator until evidence exists
+
+### CPU and scheduling assessment
+- [ ] 226. document Cell PPE role
+- [ ] 227. document SPU task dependency
+- [ ] 228. inventory CPU-side game systems when source is available
+- [ ] 229. inventory SPU kernels when source is available
+- [ ] 230. map thread priorities
+- [ ] 231. map synchronization primitives
+- [ ] 232. map atomics and barriers
+- [ ] 233. map job queues
+- [ ] 234. map task completion signals
+- [ ] 235. map timing assumptions
+- [ ] 236. map SIMD assumptions
+- [ ] 237. identify endian-sensitive code
+- [ ] 238. identify alignment-sensitive code
+- [ ] 239. identify vector intrinsics
+- [ ] 240. identify assembly dependencies
+- [ ] 241. identify exception assumptions
+- [ ] 242. design portable scheduler interface
+- [ ] 243. design deterministic scheduler tests
+- [ ] 244. define race detection strategy
+- [ ] 245. define deadlock diagnostics
+- [ ] 246. measure host prototype only when implemented
+- [ ] 247. avoid binary translation claims
+- [ ] 248. document Xenon thread topology from reliable docs
+- [ ] 249. define CPU subsystem exit criteria
+- [ ] 250. record unresolved blockers
+
+### Graphics assessment
+- [ ] 251. inventory renderer entry points when source is available
+- [ ] 252. inventory shader assets when authorized
+- [ ] 253. identify shader languages and formats
+- [ ] 254. map render target formats
+- [ ] 255. map depth and stencil assumptions
+- [ ] 256. map texture formats
+- [ ] 257. map sampler behavior
+- [ ] 258. map blending modes
+- [ ] 259. map rasterization assumptions
+- [ ] 260. map GPU synchronization
+- [ ] 261. map command buffer assumptions
+- [ ] 262. identify post-processing passes
+- [ ] 263. identify shadow techniques
+- [ ] 264. identify particle rendering
+- [ ] 265. identify skinning path
+- [ ] 266. identify vertex formats
+- [ ] 267. identify streaming assumptions
+- [ ] 268. design graphics capability table
+- [ ] 269. design shader validation scene
+- [ ] 270. design texture upload test
+- [ ] 271. design render target test
+- [ ] 272. design synchronization test
+- [ ] 273. measure resolution and memory budget
+- [ ] 274. record missing assets and dependencies
+- [ ] 275. defer renderer claims until tested
+
+### Audio assessment
+- [ ] 276. inventory audio formats when authorized
+- [ ] 277. inventory mixer graph when source is available
+- [ ] 278. document sample rate assumptions
+- [ ] 279. document channel layout assumptions
+- [ ] 280. map streaming audio behavior
+- [ ] 281. map sound effect voice lifetime
+- [ ] 282. map music playback requirements
+- [ ] 283. map buffering strategy
+- [ ] 284. map latency acceptance criteria
+- [ ] 285. map resampling needs
+- [ ] 286. map spatial audio requirements
+- [ ] 287. map audio thread synchronization
+- [ ] 288. define decoder interface
+- [ ] 289. define mixer interface
+- [ ] 290. define output adapter interface
+- [ ] 291. define silence smoke test
+- [ ] 292. define short tone test
+- [ ] 293. define stream interruption test
+- [ ] 294. define audio shutdown test
+- [ ] 295. record target audio API evidence
+- [ ] 296. avoid bundling copyrighted audio
+- [ ] 297. document missing codec dependencies
+- [ ] 298. measure underruns when implemented
+- [ ] 299. record audio subsystem blockers
+- [ ] 300. defer gameplay audio claims until tested
+
+### Input and controls
+- [ ] 301. inventory PS3 input actions from authorized source/docs
+- [ ] 302. define Xbox controller mapping
+- [ ] 303. map face buttons
+- [ ] 304. map shoulder buttons
+- [ ] 305. map triggers
+- [ ] 306. map analog stick axes
+- [ ] 307. map dead-zone policy
+- [ ] 308. map vibration requirements
+- [ ] 309. map menu navigation
+- [ ] 310. map pause behavior
+- [ ] 311. define input event interface
+- [ ] 312. define polling policy
+- [ ] 313. define event timing requirements
+- [ ] 314. test neutral controller state
+- [ ] 315. test button press
+- [ ] 316. test button release
+- [ ] 317. test analog extremes
+- [ ] 318. test dead-zone boundaries
+- [ ] 319. test disconnected controller
+- [ ] 320. test reconnect behavior
+- [ ] 321. document unsupported peripherals
+- [ ] 322. avoid assuming button parity
+- [ ] 323. record controller API evidence
+- [ ] 324. define input acceptance criteria
+- [ ] 325. defer in-game controls until engine exists
+
+### Storage and assets
+- [ ] 326. document authorized source requirements
+- [ ] 327. document authorized asset requirements
+- [ ] 328. exclude game executable from repository
+- [ ] 329. exclude encryption keys from repository
+- [ ] 330. exclude extracted copyrighted assets
+- [ ] 331. define asset manifest format
+- [ ] 332. define asset path conventions
+- [ ] 333. define missing-file diagnostics
+- [ ] 334. define read error handling
+- [ ] 335. define streaming interface requirements
+- [ ] 336. define seek requirements
+- [ ] 337. define alignment requirements
+- [ ] 338. define decompression inventory when known
+- [ ] 339. define archive inventory when known
+- [ ] 340. define texture metadata inventory when known
+- [ ] 341. define audio metadata inventory when known
+- [ ] 342. define localization data policy
+- [ ] 343. define save-data policy
+- [ ] 344. define config storage policy
+- [ ] 345. define file integrity checks
+- [ ] 346. define corrupt asset handling
+- [ ] 347. define asset versioning
+- [ ] 348. define loading performance metrics
+- [ ] 349. record storage blockers
+- [ ] 350. defer game content loading until lawful inputs exist
+
+### Packaging and executable formats
+- [ ] 351. document ELF output expectation
+- [ ] 352. inspect ELF magic bytes
+- [ ] 353. inspect ELF class
+- [ ] 354. inspect ELF endianness
+- [ ] 355. inspect ELF machine
+- [ ] 356. inspect executable type
+- [ ] 357. inspect entry point
+- [ ] 358. inspect program headers
+- [ ] 359. inspect section headers
+- [ ] 360. inspect linked libraries
+- [ ] 361. inspect unresolved symbols
+- [ ] 362. record tool used for inspection
+- [ ] 363. document target startup requirements
+- [ ] 364. identify supported XEX generation path
+- [ ] 365. verify toolchain documentation for XEX
+- [ ] 366. do not assume elf2xex availability
+- [ ] 367. inspect generated XEX metadata
+- [ ] 368. verify file is not a renamed ELF
+- [ ] 369. test package on development environment
+- [ ] 370. test package on compatible console
+- [ ] 371. record launch result
+- [ ] 372. record crash diagnostics
+- [ ] 373. keep ELF and XEX artifacts separate
+- [ ] 374. document packaging reproducibility
+- [ ] 375. release only verified artifacts
+
+### Performance and quality
+- [ ] 376. define frame-time measurement method
+- [ ] 377. define CPU timing metrics
+- [ ] 378. define GPU timing metrics
+- [ ] 379. define memory metrics
+- [ ] 380. define audio underrun metrics
+- [ ] 381. define load-time metrics
+- [ ] 382. define test scene when graphics exists
+- [ ] 383. define repeatable workload
+- [ ] 384. record hardware and environment
+- [ ] 385. avoid invented performance numbers
+- [ ] 386. set baseline after first valid test
+- [ ] 387. profile CPU hotspots when engine exists
+- [ ] 388. profile GPU passes when renderer exists
+- [ ] 389. profile memory peaks when allocator exists
+- [ ] 390. profile storage throughput when loader exists
+- [ ] 391. profile audio latency when mixer exists
+- [ ] 392. define acceptable frame pacing
+- [ ] 393. define resolution targets only after feasibility study
+- [ ] 394. define quality settings only after renderer exists
+- [ ] 395. test sustained runtime
+- [ ] 396. test scene transitions when implemented
+- [ ] 397. test resource pressure
+- [ ] 398. compare results across builds
+- [ ] 399. document regression thresholds
+- [ ] 400. do not optimize unmeasured code
+
+### Documentation and releases
+- [ ] 401. keep README status accurate
+- [ ] 402. keep progress log current
+- [ ] 403. keep architecture map current
+- [ ] 404. keep test matrix current
+- [ ] 405. link build instructions
+- [ ] 406. link porting plan
+- [ ] 407. document version changes
+- [ ] 408. document known limitations
+- [ ] 409. document build environment
+- [ ] 410. document artifact hashes
+- [ ] 411. document test evidence
+- [ ] 412. document licensing boundaries
+- [ ] 413. document third-party components
+- [ ] 414. write release checklist
+- [ ] 415. verify all links
+- [ ] 416. verify file paths
+- [ ] 417. check markdown formatting
+- [ ] 418. check table accuracy
+- [ ] 419. avoid unsupported completion claims
+- [ ] 420. avoid invented percentages
+- [ ] 421. separate plan from implementation
+- [ ] 422. separate compilation from runtime tests
+- [ ] 423. record next milestone
+- [ ] 424. tag only meaningful verified milestones
+- [ ] 425. publish release notes
+
+### Feasibility and source audit
+- [ ] 426. confirm legal access to source code
+- [ ] 427. confirm legal access to game assets
+- [ ] 428. identify source tree version
+- [ ] 429. inventory build system when available
+- [ ] 430. inventory third-party libraries when available
+- [ ] 431. inventory platform API calls when available
+- [ ] 432. inventory graphics backend when available
+- [ ] 433. inventory audio backend when available
+- [ ] 434. inventory SPU code when available
+- [ ] 435. inventory assembly files when available
+- [ ] 436. inventory shader files when available
+- [ ] 437. inventory content pipeline when available
+- [ ] 438. inventory save format dependencies when available
+- [ ] 439. inventory networking dependencies if any
+- [ ] 440. inventory platform services dependencies
+- [ ] 441. estimate each subsystem from evidence
+- [ ] 442. identify unbuildable dependencies
+- [ ] 443. identify missing source modules
+- [ ] 444. identify required replacement code
+- [ ] 445. identify testing data requirements
+- [ ] 446. identify platform blockers
+- [ ] 447. estimate memory after source review
+- [ ] 448. estimate performance after prototype
+- [ ] 449. document go/no-go criteria
+- [ ] 450. avoid declaring full port feasible prematurely
+
+### Integration and regression
+- [ ] 451. define integration branch policy
+- [ ] 452. define subsystem API review
+- [ ] 453. define compile gate
+- [ ] 454. define static test gate
+- [ ] 455. define host runtime gate
+- [ ] 456. define Xenon build gate
+- [ ] 457. define ELF inspection gate
+- [ ] 458. define hardware smoke gate
+- [ ] 459. define regression suite
+- [ ] 460. test clean checkout build
+- [ ] 461. test clean build directory
+- [ ] 462. test repeated build
+- [ ] 463. test documented commands
+- [ ] 464. test missing dependency errors
+- [ ] 465. test invalid toolchain path
+- [ ] 466. test corrupted artifact detection
+- [ ] 467. test version metadata
+- [ ] 468. test diagnostics retention
+- [ ] 469. review cross-subsystem interfaces
+- [ ] 470. review resource ownership
+- [ ] 471. review synchronization contracts
+- [ ] 472. review failure recovery
+- [ ] 473. record integration blockers
+- [ ] 474. do not merge unverified binary claims
+- [ ] 475. publish integration summary
+
+### XEX and final validation
+- [ ] 476. confirm ELF milestone evidence
+- [ ] 477. confirm target architecture evidence
+- [ ] 478. confirm startup runtime evidence
+- [ ] 479. confirm required libraries
+- [ ] 480. confirm linker configuration
+- [ ] 481. confirm XEX tool availability
+- [ ] 482. confirm packaging command from docs
+- [ ] 483. record exact packaging command
+- [ ] 484. generate XEX only from verified inputs
+- [ ] 485. inspect XEX format with suitable tools
+- [ ] 486. record XEX metadata
+- [ ] 487. verify dependencies are present
+- [ ] 488. verify launch path
+- [ ] 489. run package smoke test
+- [ ] 490. record target environment
+- [ ] 491. record launch result
+- [ ] 492. record logs and screenshots where appropriate
+- [ ] 493. test clean package installation
+- [ ] 494. test shutdown behavior
+- [ ] 495. test repeated launches
+- [ ] 496. test error path
+- [ ] 497. document compatibility limits
+- [ ] 498. keep game integration status separate
+- [ ] 499. publish verified artifact checksum
+- [ ] 500. do not claim playable game until gameplay is tested
+
+Total checklist items: 500.
+
+The first active milestone is to run the host checks and inspect the queued GitHub Actions run. Xenon ELF and XEX milestones remain blocked until the relevant toolchain and runtime evidence is available.
