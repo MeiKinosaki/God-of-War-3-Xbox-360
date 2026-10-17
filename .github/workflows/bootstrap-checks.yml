@@ -1,0 +1,21 @@
+name: Bootstrap checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  host-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Static scaffold checks
+        run: python3 tests/check_source.py
+      - name: Compile and run host bootstrap
+        run: make host-check
