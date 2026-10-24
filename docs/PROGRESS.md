@@ -1,24 +1,30 @@
 # Progress log
 
-## Version 0.2b — bootstrap scaffolding
+## Version 0.2b — bootstrap and portable-core expansion
 
 ### Added
-- Project README with honest status and staged roadmap.
-- Technical porting plan.
-- Minimal original C entry point in `src/main.c`.
-- Makefile with distinct host-check and Xenon-ELF targets.
-- Static scaffold checks in `tests/check_source.py`.
-- Build and validation instructions.
-- Architecture risk matrix and test acceptance matrix.
-- GitHub Actions workflow for host-side checks.
+- Minimal original C entry point, host build target and Xenon ELF target.
+- Portable result-code module and fixed-capacity ring buffer.
+- Unit tests for result codes, wraparound, overflow and invalid arguments.
+- CI workflow that runs host checks and portable unit tests.
+- 500-step sequential roadmap, architecture map and acceptance test matrix.
 
-### Not yet verified
-- The CI workflow has not been observed completing successfully in this record.
-- No Xenon cross-compiler version or target configuration has been verified.
-- No Xenon ELF has been built or inspected.
-- No Xbox 360 hardware test has been performed.
-- No game engine, renderer, audio engine, or gameplay code has been ported.
-- No `default.xex` exists as a verified artifact.
+### Verified
+- Earlier CI run for commit `456ca215418314d417b44465bc417195a29f94c5` passed static scaffold checks and host compilation/execution.
+- The new core tests and revised CI need their own successful run before they can be called passed.
 
-### Next milestone: 0.3b
-Run and record the host checks, inspect the GitHub Actions result, then verify the actual Xenon toolchain and compiler target before attempting an ELF build.
+### Not verified
+- Xenon cross-compiler availability and target configuration.
+- Xenon ELF build and ELF metadata.
+- Xbox 360 runtime/hardware execution.
+- God of War III engine, graphics, audio, content loading or gameplay port.
+- `default.xex` generation or execution.
+
+## Parallel workstreams
+1. Portable C core and host unit tests.
+2. Build/CI validation.
+3. Xenon toolchain/API research; no platform APIs are added without evidence.
+4. PS3-to-Xbox 360 feasibility inventory, pending lawful access to source and assets.
+
+## Next gate
+A successful current CI run, followed by verification of the actual Xenon toolchain before attempting an ELF build.

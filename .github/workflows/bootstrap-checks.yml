@@ -1,10 +1,10 @@
 name: Bootstrap checks
-
 on:
   push:
   pull_request:
   workflow_dispatch:
-
+permissions:
+  contents: read
 jobs:
   host-checks:
     runs-on: ubuntu-latest
@@ -15,7 +15,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Static scaffold checks
-        run: python3 tests/check_source.py
-      - name: Compile and run host bootstrap
-        run: make host-check
+      - name: Run host checks and portable unit tests
+        run: make check

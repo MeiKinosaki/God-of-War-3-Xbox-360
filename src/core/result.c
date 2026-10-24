@@ -1,5 +1,4 @@
 #include "result.h"
-
 const char *gow3_result_name(gow3_result result)
 {
     switch (result) {
