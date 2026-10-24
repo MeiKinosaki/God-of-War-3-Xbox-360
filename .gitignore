@@ -1,0 +1,8 @@
+/build/
+*.elf
+*.elf32
+*.xex
+*.o
+*.a
+__pycache__/
+.pytest_cache/
