@@ -1,6 +1,7 @@
 import contextlib
 import importlib.util
 import io
+import subprocess
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -35,6 +36,22 @@ class ToolchainCheckerTests(unittest.TestCase):
         self.assertEqual(result, 1)
         self.assertIn("Missing tools: xenon-gcc, elf2xex", output.getvalue())
         self.assertIn('"available": false', output.getvalue())
+
+    def test_version_probe_falls_back_to_short_flag(self):
+        empty = subprocess.CompletedProcess(args=["fake", "--version"], returncode=0, stdout="", stderr="")
+        version = subprocess.CompletedProcess(args=["fake", "-v"], returncode=0, stdout="Xenon GCC 1.2\nextra", stderr="")
+        with patch.object(module.subprocess, "run", side_effect=[empty, version]) as run:
+            result = module.run_version("/fake/bin/xenon-gcc")
+
+        self.assertEqual(result, "Xenon GCC 1.2")
+        self.assertEqual(run.call_count, 2)
+        self.assertEqual(run.call_args_list[1].args[0], ["/fake/bin/xenon-gcc", "-v"])
+
+    def test_version_probe_handles_timeout_without_crashing(self):
+        with patch.object(module.subprocess, "run", side_effect=subprocess.TimeoutExpired("fake", 5)):
+            result = module.run_version("/fake/bin/xenon-gcc")
+
+        self.assertEqual(result, "version output unavailable")
 
 
 if __name__ == "__main__":
