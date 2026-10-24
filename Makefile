@@ -6,7 +6,7 @@ BUILD_DIR ?= build
 TARGET_ELF ?= $(BUILD_DIR)/GodOfWar3.elf32
 CFLAGS ?= -Wall -Wextra -Werror -O2
 CORE_SOURCES := src/core/result.c src/core/ring_buffer.c
-.PHONY: all check host-check unit-tests xenon-elf clean
+.PHONY: all check host-check unit-tests toolchain-check xenon-elf clean
 all: check
 check: host-check unit-tests
 $(BUILD_DIR):
@@ -18,6 +18,8 @@ unit-tests: | $(BUILD_DIR)
 	$(HOST_CC) $(CFLAGS) -Isrc/core -o $(BUILD_DIR)/test-core tests/test_core.c $(CORE_SOURCES)
 	./$(BUILD_DIR)/test-core
 	$(PYTHON) tests/check_source.py
+toolchain-check:
+	$(PYTHON) tools/check_xenon_toolchain.py
 xenon-elf: | $(BUILD_DIR)
 	$(XENON_CC) $(CFLAGS) -o $(TARGET_ELF) src/main.c
 clean:

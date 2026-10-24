@@ -12,28 +12,32 @@ This is not an executable converter. The PS3 Cell processor/SPU workload, platfo
 
 - Minimal original C bootstrap exists.
 - Portable result-code and fixed-capacity ring-buffer modules exist.
-- GitHub Actions successfully ran host compilation and generic core unit tests for commit `fd0c48d9e7f6868d4c42e57c068148d0e298f94d`.
-- This does **not** verify Xenon target compatibility.
-- No Xenon toolchain has been verified; no Xenon ELF has been inspected.
-- No Xbox 360 hardware test or game engine implementation has been completed.
+- GitHub Actions passed host compilation and portable-core tests for commit `fd0c48d9e7f6868d4c42e57c068148d0e298f94d`.
+- A local Xenon toolchain discovery checker and instructions are now present.
+- The checker has not yet been run in a configured Xenon environment; no Xenon target build is verified.
+- No Xbox 360 hardware test or game-engine implementation has been completed.
 
 ## Sequential milestones
 
 1. **0.1b — Planning:** scope, constraints, and acceptance tests documented.
 2. **0.2b — Bootstrap:** initial C entry point, build scaffolding and CI added.
 3. **0.3b — Portable core:** generic modules and host-side tests; CI passed.
-4. **0.4b — Xenon ELF:** verify compiler/target and build/inspect a real ELF.
-5. **0.5b — Runtime smoke test:** test startup on compatible hardware or environment.
-6. **0.6b — Portability assessment:** map PS3 subsystems and blockers from available authorized source.
-7. **Later — Native game work:** only after source/assets, permissions, and feasibility are established.
-8. **XEX milestone:** produce and validate `default.xex` only after the ELF workflow and packaging path are confirmed.
+4. **0.4b — Toolchain discovery:** checker added; actual toolchain/ELF remain pending.
+5. **0.5b — Minimal ELF:** compile and inspect a real Xenon ELF.
+6. **0.6b — Runtime smoke test:** test startup on compatible hardware or environment.
+7. **0.7b — Portability assessment:** map PS3 subsystems and blockers from available authorized source.
+8. **Later — Native game work:** only after source/assets, permissions, and feasibility are established.
+9. **XEX milestone:** produce and validate `default.xex` only after the ELF workflow and packaging path are confirmed.
 
-## Repository layout
+## Useful commands
 
-- `src/` — original bootstrap and portable modules
-- `tests/` — host-side checks and unit tests
-- `docs/` — architecture, build instructions, progress and 500-step roadmap
-- `.github/workflows/` — continuous integration
+```sh
+make check
+make toolchain-check
+make xenon-elf
+```
+
+The Xenon target command is an attempt only; it must not be treated as successful unless the compiler runs, the output exists, and ELF inspection confirms the expected target.
 
 ## Evidence policy
 
