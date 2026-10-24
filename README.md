@@ -1,49 +1,43 @@
 # God of War III — Xbox 360 RGH Port
 
-> **Status: planning / bootstrap.** This repository does not currently contain a playable port, a verified Xenon ELF, or a verified Xbox 360 XEX.
+> **Status: bootstrap / host-side core validated.** This repository does not contain a playable port, a verified Xenon ELF, or a verified Xbox 360 XEX.
 
 ## Goal
 
 Investigate a native Xbox 360 RGH porting path for *God of War III* (originally released for PlayStation 3), starting with a minimal homebrew **Xenon.elf** test program and only later evaluating a **default.xex** build.
 
-This project is not an executable converter. The PS3 Cell processor/SPU workload, platform APIs, graphics pipeline, audio, storage, and game engine would require substantial porting or reimplementation. Feasibility depends on lawful access to the necessary source code and assets.
+This is not an executable converter. The PS3 Cell processor/SPU workload, platform APIs, graphics pipeline, audio, storage, and game engine require substantial porting or reimplementation. Feasibility depends on lawful access to the necessary source code and assets.
 
-## Current verified repository state
+## Current verified state
 
-- Repository bootstrap and planning documentation only.
-- No game engine implementation is present.
-- No toolchain installation has been verified here.
-- No ELF/XEX build or Xbox 360 hardware test has been completed.
+- Minimal original C bootstrap exists.
+- Portable result-code and fixed-capacity ring-buffer modules exist.
+- GitHub Actions successfully ran host compilation and generic core unit tests for commit `fd0c48d9e7f6868d4c42e57c068148d0e298f94d`.
+- This does **not** verify Xenon target compatibility.
+- No Xenon toolchain has been verified; no Xenon ELF has been inspected.
+- No Xbox 360 hardware test or game engine implementation has been completed.
 
-## Milestones
+## Sequential milestones
 
-1. **0.1b — Repository audit and technical plan:** document scope, dependencies, constraints, and acceptance tests.
-2. **0.2b — Toolchain verification:** identify a reproducible Free60/libXenon environment and capture compiler/version output.
-3. **0.3b — Minimal ELF prototype:** implement a small independent homebrew entry point and confirm its build output is actually an ELF for the expected PowerPC target.
-4. **0.4b — Runtime smoke test:** test startup and basic diagnostics on compatible hardware/emulation; record logs and limitations.
-5. **0.5b — Portability assessment:** map the required PS3 subsystems to Xbox 360 equivalents and identify blockers before game-engine work.
-6. **Later — Native engine work:** only proceed when code/assets and legal permissions are available; implement and test subsystems incrementally.
-7. **XEX milestone:** produce and validate `default.xex` only after the ELF workflow and target-specific packaging path are confirmed.
+1. **0.1b — Planning:** scope, constraints, and acceptance tests documented.
+2. **0.2b — Bootstrap:** initial C entry point, build scaffolding and CI added.
+3. **0.3b — Portable core:** generic modules and host-side tests; CI passed.
+4. **0.4b — Xenon ELF:** verify compiler/target and build/inspect a real ELF.
+5. **0.5b — Runtime smoke test:** test startup on compatible hardware or environment.
+6. **0.6b — Portability assessment:** map PS3 subsystems and blockers from available authorized source.
+7. **Later — Native game work:** only after source/assets, permissions, and feasibility are established.
+8. **XEX milestone:** produce and validate `default.xex` only after the ELF workflow and packaging path are confirmed.
 
-## Proposed layout
+## Repository layout
 
-```
-docs/       architecture, roadmap, test records
-src/        original port scaffolding (no proprietary game code/assets)
-tests/      host-side tests for portable components
-tools/      reproducible build/validation scripts
-.github/    CI for checks that can run in a hosted environment
-```
+- `src/` — original bootstrap and portable modules
+- `tests/` — host-side checks and unit tests
+- `docs/` — architecture, build instructions, progress and 500-step roadmap
+- `.github/workflows/` — continuous integration
 
-## Reporting rules
+## Evidence policy
 
-Every progress report must distinguish:
-- **Planned** — documented but not implemented.
-- **Implemented** — source code exists.
-- **Compiled** — a build completed and logs/artifacts were checked.
-- **Tested** — behavior was executed and the test result recorded.
-
-Never describe a planned feature as implemented, or a build as tested without evidence.
+Every feature must be labeled **planned**, **implemented**, **compiled**, or **runtime-tested** as appropriate. Never describe planned features as implemented or claim a target build without a checked artifact and recorded evidence.
 
 ## Legal and asset policy
 
