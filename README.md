@@ -12,9 +12,10 @@ This is not an executable converter. The PS3 Cell processor/SPU workload, platfo
 
 - Minimal original C bootstrap exists.
 - Portable result-code and fixed-capacity ring-buffer modules exist.
-- GitHub Actions passed host compilation, portable-core tests and static checks for commit `b96cb51a79aedaeaf59cbf0fc38a5990017eb0ec`.
+- GitHub Actions run [40051357983](https://github.com/MeiKinosaki/God-of-War-3-Xbox-360/actions/runs/40051357983) passed the host checks for its tested commit.
 - A local Xenon toolchain discovery checker, diagnostic C probe source and ELF header inspector are present.
-- Host-side tests for the ELF inspector have been added; current CI result must be checked before calling them passed.
+- ELF-inspector tests and toolchain-checker tests are present in the repository. The newest toolchain-checker tests still need a confirmed CI result.
+- ELF tests use a synthetic header; this is not a generated Xenon executable.
 - No Xenon target build or actual ELF inspection has been recorded.
 - No Xbox 360 hardware test or game-engine implementation has been completed.
 
@@ -25,7 +26,7 @@ This is not an executable converter. The PS3 Cell processor/SPU workload, platfo
 3. **0.3b — Portable core:** generic modules and host-side tests; CI passed.
 4. **0.4b — Toolchain discovery:** checker added; actual toolchain/ELF remain pending.
 5. **0.5b — ELF validation:** probe source and inspector/tests added; actual Xenon output pending.
-6. **0.6b — Runtime smoke test:** test startup on compatible hardware or environment.
+6. **0.6b — Runtime smoke test:** test startup on compatible hardware or environment, only after an actual target ELF exists.
 7. **0.7b — Portability assessment:** map PS3 subsystems and blockers from available authorized source.
 8. **Later — Native game work:** only after source/assets, permissions, and feasibility are established.
 9. **XEX milestone:** produce and validate `default.xex` only after the ELF workflow and packaging path are confirmed.
